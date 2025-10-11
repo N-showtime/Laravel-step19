@@ -14,11 +14,13 @@
             <div class="mt-8">
                 <div class="w-full flex flex-col">
                     <label for="title" class="font-semibold mt-4">件名</label>
-                    <input type="text" name="title" class="w-atou p-2 border border-gray-300 rounded-md" id="title">
+                    <x-input-error :messages="$errors->get('title')" class="mt-2" />
+                    <input type="text" name="title" class="w-atou p-2 border border-gray-300 rounded-md" id="title" value="{{ old('title') }}">
                 </div>
                 <div class="w-full flex flex-col">
                     <label for="body" class="font-semibold mt-4">本文</label>
-                    <textarea name="body" class="w-auto p-2 border border-gray-300 rounded-md" id="body" cols="30" rows="8" ></textarea>
+                    <x-input-error :messages="$errors->get('body')" class="mt-2" />
+                    <textarea name="body" class="w-auto p-2 border border-gray-300 rounded-md" id="body" cols="30" rows="8" >{{ old('body') }}</textarea>
                 </div>
                 <flux:button variant="primary" type="submit" class="w-full mt-4 cursor-pointer">送信する</flux:button>
             </div>
