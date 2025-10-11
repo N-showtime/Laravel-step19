@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-layouts.app>
 
        <div class="max-w-7xl mx-auto px-6">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -18,4 +18,4 @@
             </div>
         </form>
        </div>
-</x-app-layout>
+</x-layouts.app>
