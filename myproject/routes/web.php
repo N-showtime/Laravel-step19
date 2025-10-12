@@ -7,6 +7,7 @@ use App\Livewire\Settings\TwoFactor;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use App\Http\Controllers\PostController;
+use App\Livewire\UserList;
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,26 +36,8 @@ Route::middleware(['auth'])->group(function () {
         ->name('two-factor.show');
 });
 
-// Route::middleware(['auth', 'admin'])->group(function ()
-// {
-//     // postの作成
-//     Route::get('post/create', [PostController::class, 'create']);
-//     Route::post('post', [PostController::class, 'store'])->name('post.store');
-
-//     // 一覧画面
-//     Route::get('post', [PostController::class, 'index'])->name('post.index');
-// });
-
-// // 個別表示機能
-// Route::get('post/show/{post}', [PostController::class, 'show'])->name('post.show');
-
-// // 編集機能
-// Route::get('post/{post}/edit', [PostController::class, 'edit'])->name('post.edit');
-// Route::patch('post/{post}', [PostController::class, 'update'])->name('post.update');
-
-// //削除機能の搭載
-// Route::delete('post/{post}', [PostController::class, 'destroy'])->name('post.destroy');
-
 Route::resource('post', PostController::class);
+
+Route::get('/users', UserList::class)->name('users.list');
 
 require __DIR__.'/auth.php';
