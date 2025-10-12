@@ -4,11 +4,13 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 一覧表示
             </h2>
-            @if (session('message'))
+            {{-- @if (session('message'))
                 <div class="text-red-600 font-bold">
                      {{ session('message') }}
                 </div>
-            @endif
+            @endif --}}
+
+            <x-message :message="session('message')" />
 
         <div class="mx-auto px-6">
             @foreach ($posts as $post)
