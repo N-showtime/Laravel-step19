@@ -44,6 +44,29 @@ class PostController extends Controller
     }
 
     /**
+     * プレビュー画面の実装
+     */
+
+    public function preview(Request $request)
+    {
+    // バリデーション
+        $validated = $request->validate([
+            'title' => 'required|max:20',
+            'body'  => 'required|max:400',
+        ]);
+
+    // // セッションに保存
+    //     $request->session()->put('preview', $validated);
+
+    // プレビュー画面へ
+        return view('post.preview', [
+            'title' => $validated['title'],
+            'body'  => $validated['body'],
+        ]);
+    }
+
+
+    /**
      * Display the specified resource.
      */
     public function show(Post $post)

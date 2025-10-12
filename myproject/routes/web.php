@@ -38,6 +38,8 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('post', PostController::class);
 
         Route::get('/users', UserList::class)->middleware('can:admin')->name('users.list');
+        // プレビュー画面を追加
+        Route::post('/post/preview', [PostController::class, 'preview'])->name('post.preview');
 });
 
 
