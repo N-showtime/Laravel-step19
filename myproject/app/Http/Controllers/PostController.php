@@ -32,4 +32,9 @@ class PostController extends Controller
         $request->session()->flash('message', '保存しました');
         return back();
     }
+
+    public function show (Post $post)
+    {
+        return view('post.show', compact('post'));
+    }
 }

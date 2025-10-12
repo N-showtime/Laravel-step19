@@ -45,5 +45,8 @@ Route::middleware(['auth', 'admin'])->group(function ()
     Route::get('post', [PostController::class, 'index']);
 });
 
+// 個別表示機能
+Route::get('post/show/{post}', [PostController::class, 'show'])->name('post.show');
+
 
 require __DIR__.'/auth.php';
