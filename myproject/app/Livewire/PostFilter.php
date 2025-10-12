@@ -17,7 +17,7 @@ class PostFilter extends Component
 
     public function render()
     {
-        $posts = Post::query()->when($this->search, fn($q) => $q->where('title', 'like', '%' . $this->search . '%')->orWhere('body', 'like', '%' . $this->search . '%'))->paginate(10);
+        $posts = Post::query()->when($this->search, fn($q) => $q->where('title', 'like', '%' . $this->search . '%')->orWhere('body', 'like', '%' . $this->search . '%'))->paginate(5);
 
 
         // $query = Post::query();
