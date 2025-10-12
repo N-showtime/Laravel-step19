@@ -55,5 +55,6 @@ Route::middleware(['auth'])->group(function () {
 // //削除機能の搭載
 // Route::delete('post/{post}', [PostController::class, 'destroy'])->name('post.destroy');
 
+Route::resource('post', PostController::class);
 
 require __DIR__.'/auth.php';
