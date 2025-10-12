@@ -48,5 +48,8 @@ Route::middleware(['auth', 'admin'])->group(function ()
 // 個別表示機能
 Route::get('post/show/{post}', [PostController::class, 'show'])->name('post.show');
 
+// 編集機能
+Route::get('post/{post}/edit', [PostController::class, 'edit'])->name('post.edit');
+Route::patch('post/{post}', [PostController::class, 'update'])->name('post.update');
 
 require __DIR__.'/auth.php';
