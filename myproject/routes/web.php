@@ -35,7 +35,12 @@ Route::middleware(['auth'])->group(function () {
         ->name('two-factor.show');
 });
 
+// postの作成
 Route::get('post/create', [PostController::class, 'create']);
 Route::post('post', [PostController::class, 'store'])->name('post.store');
+
+// 一覧画面
+Route::get('post', [PostController::class, 'index']);
+
 
 require __DIR__.'/auth.php';
