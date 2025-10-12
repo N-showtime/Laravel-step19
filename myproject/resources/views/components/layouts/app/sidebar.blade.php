@@ -17,6 +17,11 @@
                     <flux:navlist.item icon="home" :href="route('post.index')" :current="request()->routeIs('post.index')" wire:navigate>一覧画面</flux:navlist.item>
 
                     <flux:navlist.item icon="pencil-square" :href="route('post.create')" :current="request()->routeIs('post.create')" wire:navigate>新規作成</flux:navlist.item>
+
+                    @can('admin')
+                        <flux:navlist.item icon="users" :href="route('users.list')" :current="request()->routeIs('users.list')" wire:navigate>ユーザー一覧</flux:navlist.item>
+
+                    @endcan
                 </flux:navlist.group>
             </flux:navlist>
 

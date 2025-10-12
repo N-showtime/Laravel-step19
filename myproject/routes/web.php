@@ -34,10 +34,12 @@ Route::middleware(['auth'])->group(function () {
             ),
         )
         ->name('two-factor.show');
+
+        Route::resource('post', PostController::class);
+
+        Route::get('/users', UserList::class)->middleware('can:admin')->name('users.list');
 });
 
-Route::resource('post', PostController::class);
 
-Route::get('/users', UserList::class)->name('users.list');
 
 require __DIR__.'/auth.php';
