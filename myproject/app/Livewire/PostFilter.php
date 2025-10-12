@@ -3,14 +3,21 @@
 namespace App\Livewire;
 
 use App\Models\Post;
+use Livewire\WithPagination;
 use Livewire\Component;
 
 class PostFilter extends Component
 {
+    use WithPagination;
     public $search = '';
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
     public function render()
     {
-        $posts = Post::query()->when($this->search, fn($q) => $q->where('title', 'like', '%' . $this->search . '%')->orWhere('body', 'like', '%' . $this->search . '%'))->get();
+        $posts = Post::query()->when($this->search, fn($q) => $q->where('title', 'like', '%' . $this->search . '%')->orWhere('body', 'like', '%' . $this->search . '%'))->paginate(10);
 
 
         // $query = Post::query();
